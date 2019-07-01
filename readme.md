@@ -4,7 +4,7 @@ This is a student repository for the Wolfram Summer School.
 
 ## Computational essay "Is the instantaneous Internet real?"
 
-The essay is available as a Wolfram Mathematica notebook [here](Homework/ComputationalEssay.nb).
+The essay is available as a Wolfram Mathematica notebook [here](Homework/Final%20Submission/ComputationalEssay.nb).
 
 ## Project "Code Embeddings for Wolfram Language"
 
