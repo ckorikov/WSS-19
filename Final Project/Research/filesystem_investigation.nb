@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     74839,       1706]
-NotebookOptionsPosition[     72430,       1659]
-NotebookOutlinePosition[     72769,       1674]
-CellTagsIndexPosition[     72726,       1671]
+NotebookDataLength[     24350,        577]
+NotebookOptionsPosition[     20947,        513]
+NotebookOutlinePosition[     21287,        528]
+CellTagsIndexPosition[     21244,        525]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -181,7 +181,7 @@ Cell[BoxData[
   "Out[122]=",ExpressionUUID->"ef7f8274-2255-4c92-982e-01e35f1b0bd0"]
 }, Open  ]]
 }, Closed]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -203,17 +203,18 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"normaliser", "[", "exp_", "]"}], ":=", 
-   RowBox[{"Last", "@", 
-    RowBox[{"Replace", "[", 
-     RowBox[{
-      RowBox[{"HoldComplete", "[", "exp", "]"}], ",", 
+   RowBox[{"ToString", "@", 
+    RowBox[{"Last", "@", 
+     RowBox[{"Replace", "[", 
       RowBox[{
-       RowBox[{"h_", "[", "x___", "]"}], "\[Rule]", " ", 
+       RowBox[{"HoldComplete", "[", "exp", "]"}], ",", 
+       RowBox[{
+        RowBox[{"h_", "[", "x___", "]"}], "\[Rule]", " ", 
+        RowBox[{"{", 
+         RowBox[{"h", ",", "x"}], "}"}]}], ",", 
        RowBox[{"{", 
-        RowBox[{"h", ",", "x"}], "}"}]}], ",", 
-      RowBox[{"{", 
-       RowBox[{"0", ",", 
-        RowBox[{"-", "1"}]}], "}"}]}], "]"}]}]}], 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], "]"}]}]}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -231,1433 +232,286 @@ Cell[BoxData[{
  CellChangeTimes->{{3.771014588187933*^9, 3.7710146020853357`*^9}, {
   3.771014669792543*^9, 3.771014674781258*^9}, {3.771015045029604*^9, 
   3.771015050934453*^9}, {3.7710154788603773`*^9, 3.771015562109206*^9}, {
-  3.771015668620242*^9, 3.771015669041415*^9}},
- Background->RGBColor[
-  0.87, 0.94, 1],ExpressionUUID->"cff05178-9ac4-450c-b6ba-bcb5f9b61465"],
+  3.771015668620242*^9, 3.771015669041415*^9}, {3.771019281705288*^9, 
+  3.771019288681182*^9}, {3.771019532487194*^9, 3.771019533082314*^9}, {
+  3.771020993772732*^9, 3.771020997781459*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->
+  "In[318]:=",ExpressionUUID->"cff05178-9ac4-450c-b6ba-bcb5f9b61465"],
 
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.770997297966475*^9, 3.770997297968412*^9}, {
-   3.771000494909894*^9, 3.771000495657426*^9}, {3.77101417409039*^9, 
-   3.7710141908141193`*^9}, {3.771014255337996*^9, 3.7710142738620853`*^9}, {
-   3.771014307349368*^9, 3.771014361676697*^9}, {3.771014427068314*^9, 
-   3.771014427525507*^9}, 3.7710156141344*^9, 
-   3.771015666988411*^9},ExpressionUUID->"1363f63b-c7fe-4b62-9c52-\
-fdbb903e8848"],
-
-Cell[BoxData[
+Cell[BoxData[{
  RowBox[{
   RowBox[{"source", "=", 
    RowBox[{"getSource", "@", 
-    RowBox[{"mFilesFiltered", "[", 
-     RowBox[{"[", 
-      RowBox[{"-", "1"}], "]"}], "]"}]}]}], ";"}]], "Input",
+    RowBox[{"wlFilesFiltered", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", "source"}], "Input",
  CellChangeTimes->{{3.771000462359281*^9, 3.771000462941318*^9}, {
    3.771000499641988*^9, 3.771000500050077*^9}, 3.771000543766262*^9, 
    3.771000695392128*^9, {3.771001530562717*^9, 3.7710015323103933`*^9}, {
    3.771001618076754*^9, 3.77100162612766*^9}, {3.771001672883505*^9, 
    3.771001675527412*^9}, {3.771014205780201*^9, 3.77101422623965*^9}, 
    3.77101437166222*^9, {3.771014423212853*^9, 3.771014423636582*^9}, {
-   3.771014643838365*^9, 3.771014652428123*^9}},
- CellLabel->"In[61]:=",ExpressionUUID->"cf79c1c8-2176-4dc1-8f5c-15c9b23e3d2e"],
+   3.771014643838365*^9, 3.771014652428123*^9}, {3.771015744197002*^9, 
+   3.771015754783278*^9}, 3.771015905517893*^9, {3.771020522194072*^9, 
+   3.7710205268174543`*^9}, {3.771020559799041*^9, 3.7710205788114347`*^9}, {
+   3.7710210064376707`*^9, 3.771021027143799*^9}, {3.771021147804824*^9, 
+   3.7710211559733973`*^9}},
+ CellLabel->
+  "In[189]:=",ExpressionUUID->"cf79c1c8-2176-4dc1-8f5c-15c9b23e3d2e"],
+
+Cell["\<\
+Problem with line 91 in /Applications/Wolfram \
+Desktop.app/Contents/AddOns/Applications/AstronomyConvenienceFunctions/Kernel/\
+AstronomyConvenienceFunctions.m
+It\[CloseCurlyQuote]s mFilesFiltered[[2]]\
+\>", "Text",
+ CellChangeTimes->{{3.7710204978046923`*^9, 3.7710205135477324`*^9}, {
+  3.77102113233352*^9, 
+  3.771021133952159*^9}},ExpressionUUID->"cce4135e-3135-4151-b888-\
+e1df18438aad"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["source"], "Input",
- CellChangeTimes->{{3.771015623438033*^9, 3.771015624156425*^9}},
- CellLabel->"In[62]:=",ExpressionUUID->"6f88b2a6-c624-4b95-b3a6-69fa65d1d5df"],
+Cell[BoxData[
+ RowBox[{"ToString", "@", 
+  RowBox[{"source", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7710209296043797`*^9, 3.771020970194029*^9}, {
+  3.771021165527391*^9, 3.7710211660689487`*^9}},
+ CellLabel->
+  "In[191]:=",ExpressionUUID->"78c8cf26-b0ee-4b42-845a-b1be8a66a555"],
+
+Cell[BoxData["\<\"{CompoundExpression, {Set, {MessageName, AreaBetweenCurves, \
+usage}, Compute the area between two plane curves}, Null}\"\>"], "Output",
+ CellChangeTimes->{{3.77102093203319*^9, 3.7710209705358343`*^9}, 
+   3.771021166734962*^9},
+ CellLabel->
+  "Out[191]=",ExpressionUUID->"e7824fe3-ecd5-4bed-acaa-368e8780c200"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Docs processing", "Subsection",
+ CellChangeTimes->{{3.771021252450385*^9, 
+  3.7710212565720053`*^9}},ExpressionUUID->"0e6a13a1-dfe9-41b1-a255-\
+fe5737e6269a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getSourceFromDoc", "[", "docCell_", "]"}], ":=", 
+  RowBox[{"ToString", "@", 
+   RowBox[{"Last", "@", 
+    RowBox[{"Replace", "[", 
+     RowBox[{
+      RowBox[{"ToExpression", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ReplaceRepeated", "[", 
+          RowBox[{"docCell", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"_", "[", 
+               RowBox[{"_", "[", 
+                RowBox[{
+                 RowBox[{"BoxData", "[", "r_", "]"}], ",", "___"}], "]"}], 
+               "]"}], "\[Rule]", " ", "r"}], ",", 
+             RowBox[{
+              RowBox[{"RowBox", "[", "r_", "]"}], "\[Rule]", "r"}]}], "}"}]}],
+           "]"}], "//", "StringJoin"}], ",", "InputForm", ",", 
+        "HoldComplete"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"h_", "[", "x___", "]"}], "\[Rule]", " ", 
+       RowBox[{"{", 
+        RowBox[{"h", ",", "x"}], "}"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"-", "1"}]}], "}"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.771026287325234*^9, 3.771026288740505*^9}, {
+  3.771026407765082*^9, 3.771026552736136*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->
+  "In[333]:=",ExpressionUUID->"bf589362-5872-4607-980e-f7dac1373a01"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "=", 
+   RowBox[{
+    RowBox[{"WolframLanguageData", "[", "\"\<Sin\>\"", "]"}], "[", 
+    TemplateBox[{
+     "\"documentation basic examples\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{
+         "\"WolframLanguageSymbol\"", ",", "\"DocumentationBasicExamples\""}],
+         "]"}],"\"EntityProperty[\\\"WolframLanguageSymbol\\\", \
+\\\"DocumentationBasicExamples\\\"]\""},
+     "EntityProperty"], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7710212627317657`*^9, 3.771021266902258*^9}, {
+  3.771021301795259*^9, 3.771021302420412*^9}, {3.771021498212264*^9, 
+  3.7710215803946877`*^9}, {3.771021802189986*^9, 3.771021806314893*^9}, {
+  3.771021856402588*^9, 3.771021857462098*^9}},
+ CellLabel->
+  "In[262]:=",ExpressionUUID->"98b15a2a-cd63-48c7-bab3-42ed9db26c1b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tt", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", "t"}]}]], "Input",
+ CellChangeTimes->{{3.771024765932526*^9, 3.771024781342609*^9}},
+ CellLabel->
+  "In[265]:=",ExpressionUUID->"7329812c-80a5-4674-a631-7f15c582a8b6"],
 
 Cell[BoxData[
  RowBox[{"{", 
+  RowBox[{Cell[BoxData[
+    RowBox[{"Sin", "[", 
+     RowBox[{"Pi", "/", "3"}], "]"}]], "Input",
+    ShowStringCharacters->True,ExpressionUUID->
+    "6cbd32c8-4339-4758-aa7c-f08b0812732b"], ",", Cell[BoxData[
+    RowBox[{"Sin", "[", 
+     RowBox[{"60", "Degree"}], "]"}]], "Input",
+    ShowStringCharacters->True,ExpressionUUID->
+    "71bb8924-a32c-4dae-a2c7-9e1e39fbc477"], ",", Cell[BoxData[
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", 
+        RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]], "Input",
+    ShowStringCharacters->True,ExpressionUUID->
+    "398c8b74-8aa7-4664-92f8-642b9ed1a444"], ",", Cell[BoxData[
+    RowBox[{"Series", "[", 
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}]], "Input",
+    ShowStringCharacters->True,ExpressionUUID->
+    "a724e0f9-f422-4246-aa2d-c8908b0af681"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7710247662520123`*^9, 3.7710247818980713`*^9}},
+ CellLabel->
+  "Out[265]=",ExpressionUUID->"8e7b9348-8520-4eb1-9925-93a67f60eb26"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
   RowBox[{
-   RowBox[{"{", 
-    RowBox[{"BeginPackage", ",", "\<\"XMPTools`\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"Begin", ",", "\<\"`Private`\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", "False", ",", "False"}], "}"}], ",", "Null"}], 
-    "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", "\<\"XMPTools\"\>", ",", "\<\"XMPTools\"\>"}], 
-      "}"}], ",", "Null"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", "\<\"\"\>", ",", 
-       RowBox[{"{", 
-        RowBox[{"FileNameDrop", ",", "\<\"\"\>", ",", 
-         RowBox[{"-", "2"}]}], "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", "\<\"/LibraryResources/MacOSX-x86-64\"\>", ",", 
-       RowBox[{"{", 
-        RowBox[{"FileNameJoin", ",", 
-         RowBox[{"{", 
-          RowBox[{
-          "List", ",", "\<\"\"\>", ",", "\<\"LibraryResources\"\>", 
-           ",", "\<\"MacOSX-x86-64\"\>"}], "}"}]}], "}"}]}], "}"}], ",", 
-     "Null"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"{", 
-        RowBox[{"\<\"/Kernel/Tags.m\"\>", ",", "\<\"/Kernel/Exif.m\"\>", 
-         ",", "\<\"/Kernel/XMP.m\"\>", ",", "\<\"/Kernel/IPTC.m\"\>", 
-         ",", "\<\"/LibraryResources/LibraryLinkUtilities.wl\"\>"}], "}"}], 
-       ",", 
-       RowBox[{"{", 
-        RowBox[{"Append", ",", 
-         RowBox[{"{", 
-          RowBox[{"Map", ",", 
-           RowBox[{"{", 
-            RowBox[{"Function", ",", 
-             RowBox[{"{", 
-              RowBox[{"FileNameJoin", ",", 
-               RowBox[{"{", 
-                RowBox[{"List", ",", "\<\"\"\>", ",", "\<\"Kernel\"\>", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Slot", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], 
-            "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-            "List", ",", "\<\"Tags.m\"\>", ",", "\<\"Exif.m\"\>", 
-             ",", "\<\"XMP.m\"\>", ",", "\<\"IPTC.m\"\>"}], "}"}]}], "}"}], 
-         ",", 
-         RowBox[{"{", 
-          RowBox[{"FileNameJoin", ",", 
-           RowBox[{"{", 
-            RowBox[{
-            "List", ",", "\<\"\"\>", ",", "\<\"LibraryResources\"\>", 
-             ",", "\<\"LibraryLinkUtilities.wl\"\>"}], "}"}]}], "}"}]}], 
-        "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Once", ",", 
-       RowBox[{"{", 
-        RowBox[{"Map", ",", "Get", ",", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"/Kernel/Tags.m\"\>", ",", "\<\"/Kernel/Exif.m\"\>", 
-           ",", "\<\"/Kernel/XMP.m\"\>", ",", "\<\"/Kernel/IPTC.m\"\>", 
-           ",", "\<\"/LibraryResources/LibraryLinkUtilities.wl\"\>"}], 
-          "}"}]}], "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"InitXMPTools", ",", 
-       RowBox[{"{", 
-        RowBox[{"Optional", ",", 
-         RowBox[{"{", 
-          RowBox[{"Pattern", ",", "debug", ",", 
-           RowBox[{"{", "Blank", "}"}]}], "}"}], ",", "False"}], "}"}]}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"If", ",", 
-       RowBox[{"{", 
-        RowBox[{"TrueQ", ",", "False"}], "}"}], ",", "False", ",", 
-       RowBox[{"{", 
-        RowBox[{"Set", ",", "False", ",", 
-         RowBox[{"{", 
-          RowBox[{"Catch", ",", 
-           RowBox[{"{", 
-            RowBox[{"CompoundExpression", ",", 
-             RowBox[{"{", 
-              RowBox[{"Block", ",", 
-               RowBox[{"{", 
-                RowBox[{"List", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"{", 
-                    
-                    RowBox[{"\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Autoload/PacletManager/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Kernel/SystemResources/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Users/ckorikov/Library/WolframDesktop/\
-SystemFiles/LibraryResources/MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Library/WolframDesktop/SystemFiles/\
-LibraryResources/MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/AddOns/Applications/DocumentationSearch/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/AddOns/Applications/StandardOceanData/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/AudioFileStreamTools/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/AudioTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/CalendarTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/CloudObject/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/CURLLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/DAALLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/DTWTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ExternalStorage/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/FDLLink/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/GeometryTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/GIFTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/HDF5Tools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/HTTPLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ImageFileTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/IMAQTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/IPOPTLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/JSONTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/LibraryLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/LightGBMLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MediaTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MIDITools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MIMETools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MongoLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MP3Tools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MQTTLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/OpenCLLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/OpenCVLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/OpenSURF/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ProcessLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ProtobufLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/RAWTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SCSLink/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SDPLink/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SecureShellLink/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SerialLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SocketLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SoundFileTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SpeechSynthesisTools/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SpeechVocoderTools/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/StreamLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SVTools/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SystemTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TesseractTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TetGenLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TINSLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TriangleLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/UUID/LibraryResources/MacOSX-x86-64\"\>\
-", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/VernierLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/WebpTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/XLTools/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/XMPTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ZeroMQLink/LibraryResources/MacOSX-x86-\
-64\"\>"}], "}"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"Prepend", ",", 
-                    RowBox[{"{", 
-                    
-                    RowBox[{"\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Autoload/PacletManager/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Kernel/SystemResources/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Users/ckorikov/Library/WolframDesktop/\
-SystemFiles/LibraryResources/MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Library/WolframDesktop/SystemFiles/\
-LibraryResources/MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/AddOns/Applications/DocumentationSearch/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/AddOns/Applications/StandardOceanData/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/AudioFileStreamTools/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/AudioTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/CalendarTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/CloudObject/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/CURLLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/DAALLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/DTWTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ExternalStorage/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/FDLLink/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/GeometryTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/GIFTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/HDF5Tools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/HTTPLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ImageFileTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/IMAQTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/IPOPTLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/JSONTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/LibraryLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/LightGBMLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MediaTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MIDITools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MIMETools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MongoLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MP3Tools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/MQTTLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/OpenCLLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/OpenCVLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/OpenSURF/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ProcessLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ProtobufLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/RAWTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SCSLink/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SDPLink/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SecureShellLink/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SerialLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SocketLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SoundFileTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SpeechSynthesisTools/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SpeechVocoderTools/LibraryResources/\
-MacOSX-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/StreamLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SVTools/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/SystemTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TesseractTools/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TetGenLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TINSLink/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/TriangleLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/UUID/LibraryResources/MacOSX-x86-64\"\>\
-", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/VernierLink/LibraryResources/MacOSX-\
-x86-64\"\>", 
-                    ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/WebpTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/XLTools/LibraryResources/MacOSX-x86-64\
-\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/XMPTools/LibraryResources/MacOSX-x86-\
-64\"\>", ",", "\<\"/Applications/Wolfram \
-Desktop.app/Contents/SystemFiles/Links/ZeroMQLink/LibraryResources/MacOSX-x86-\
-64\"\>"}], "}"}], ",", "\<\"/LibraryResources/MacOSX-x86-64\"\>"}], "}"}]}], 
-                  "}"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"CompoundExpression", ",", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "SafeLibraryLoad", ",", "debug", ",", "\<\"XMPTools\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "RegisterPacletErrors", ",", "\<\"XMPTools\"\>", ",", 
-                   RowBox[{"{", "Association", "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$XMPInitialize", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"XMPInitialize\"\>", ",", 
-                    
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$XMPUnInitialize", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"XMPUnInitialize\"\>", 
-                    ",", 
-                    RowBox[{"{", "List", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$XMPInitializeMetaCopy", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", 
-                    ",", "\<\"XMPInitializeMetaCopy\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$XMPUnInitializeMetaCopy", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", 
-                    ",", "\<\"XMPUnInitializeMetaCopy\"\>", ",", 
-                    RowBox[{"{", "List", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$CopyMetaInformation", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"CopyMetaInformation\"\>",
-                     ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadExifAllRaw", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"ReadExifAllRaw\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadExifIndividualTag", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", 
-                    ",", "\<\"ReadExifIndividualTag\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteExifInt", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteExifInt\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Blank", ",", "Integer"}], "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteExifReal", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteExifReal\"\>", ",", 
-                    
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Blank", ",", "Real"}], "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteExifString", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteExifString\"\>", 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadXMPAll", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"ReadXMPAll\"\>", ",", 
-                    RowBox[{"{", "List", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadXMPAllRaw", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"ReadXMPAllRaw\"\>", ",", 
-                    
-                    RowBox[{"{", "List", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteXMPNumber", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteXMPNumber\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Blank", ",", "Integer"}], "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteXMPString", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteXMPString\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteXMPStructure", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteXMPStructure\"\>", 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadIPTCAll", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"ReadIPTCAll\"\>", ",", 
-                    RowBox[{"{", "List", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadIPTCAllRaw", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"ReadIPTCAllRaw\"\>", ",", 
-                    RowBox[{"{", "List", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$ReadIPTCIndividualTag", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", 
-                    ",", "\<\"ReadIPTCIndividualTag\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteIPTCInt", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteIPTCInt\"\>", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Blank", ",", "Integer"}], "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", "$WriteIPTCString", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "SafeLibraryFunction", ",", "\<\"WriteIPTCString\"\>", 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"List", ",", "\<\"UTF8String\"\>"}], "}"}]}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Alternatives", ",", "True", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", "Null"}], "}"}]}], "}"}], 
-             ",", "True"}], "}"}]}], "}"}]}], "}"}]}], "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"CompoundExpression", ",", 
-     RowBox[{"{", 
-      RowBox[{"Set", ",", 
-       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-       RowBox[{"{", "Association", "}"}]}], "}"}], ",", "Null"}], "}"}], ",", 
-   
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"Init", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "on", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "meta", ",", 
-         RowBox[{"{", 
-          RowBox[{"Blank", ",", "String"}], "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "fname", ",", 
-         RowBox[{"{", "BlankNullSequence", "}"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"Block", ",", 
-       RowBox[{"{", 
-        RowBox[{"List", ",", 
-         RowBox[{"{", 
-          RowBox[{
-          "Set", ",", "\<\"Global`\"\>", 
-           ",", "\<\"XMPTools`TempContext`\"\>"}], "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"If", ",", 
-         RowBox[{"{", 
-          RowBox[{"SameQ", ",", "on", ",", "False"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"CompoundExpression", ",", 
-           RowBox[{"{", "$XMPUnInitialize", "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"Which", ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"Exif\"\>"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"ExifRaw\"\>"}], "}"}], 
-             ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"MakerNote\"\>"}], "}"}],
-              ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"XMP\"\>"}], "}"}], ",", 
-             
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"XMPRaw\"\>"}], "}"}], 
-             ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"IPTC\"\>"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"SameQ", ",", "meta", ",", "\<\"IPTCRaw\"\>"}], "}"}], 
-             ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", 
-               RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-               "$Failed"}], "}"}]}], "}"}]}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"If", ",", 
-           RowBox[{"{", 
-            RowBox[{"Not", ",", 
-             RowBox[{"{", 
-              RowBox[{"TrueQ", ",", 
-               RowBox[{"{", 
-                RowBox[{"$XMPInitialize", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Quiet", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"FindFile", ",", "fname"}], "}"}]}], "}"}]}], 
-                "}"}]}], "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"CompoundExpression", ",", 
-             RowBox[{"{", 
-              RowBox[{"Quiet", ",", 
-               RowBox[{"{", 
-                RowBox[{"Which", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"Exif\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"ExifRaw\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"MakerNote\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"XMP\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"XMPRaw\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"IPTC\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"IPTCRaw\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",",
-                    "$Failed"}], "}"}]}], "}"}]}], "}"}], ",", "False"}], 
-            "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"CompoundExpression", ",", 
-             RowBox[{"{", 
-              RowBox[{"Quiet", ",", 
-               RowBox[{"{", 
-                RowBox[{"Which", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"IPTC\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"ReadIPTC", ",", "\<\"All\"\>", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"IPTCRaw\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"ReadIPTC", ",", "\<\"AllRaw\"\>", ",", "False"}],
-                     "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"Exif\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"ReadExif", ",", "\<\"All\"\>", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"ExifRaw\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"ReadExif", ",", "\<\"AllRaw\"\>", ",", "False"}],
-                     "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"MakerNote\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "ReadExif", ",", "\<\"MakerNote\"\>", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"XMP\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"ReadXMP", ",", "\<\"All\"\>", ",", "False"}], 
-                    "}"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "meta", ",", "\<\"XMPRaw\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Set", ",", 
-                   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"ReadXMP", ",", "\<\"AllRaw\"\>", ",", "False"}], 
-                    "}"}]}], "}"}]}], "}"}]}], "}"}], ",", "True"}], "}"}]}], 
-          "}"}]}], "}"}]}], "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"validatePossibleAssociation", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "tmp", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"If", ",", 
-       RowBox[{"{", 
-        RowBox[{"And", ",", 
-         RowBox[{"{", 
-          RowBox[{"Not", ",", 
-           RowBox[{"{", 
-            RowBox[{"MatchQ", ",", "tmp", ",", 
-             RowBox[{"{", 
-              RowBox[{"LibraryFunctionError", ",", 
-               RowBox[{"{", "Blank", "}"}], ",", 
-               RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}]}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"StringQ", ",", "tmp"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"Or", ",", 
-           RowBox[{"{", 
-            RowBox[{"StringMatchQ", ",", "tmp", ",", 
-             RowBox[{"{", 
-              RowBox[{"StringExpression", ",", "\<\"<|\"\>", ",", 
-               RowBox[{"{", "BlankNullSequence", "}"}], ",", "\<\"|>\"\>"}], 
-              "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"StringMatchQ", ",", "tmp", ",", 
-             RowBox[{"{", 
-              RowBox[{"StringExpression", ",", "\<\"{\"\>", ",", 
-               RowBox[{"{", "BlankNullSequence", "}"}], ",", "\<\"}\"\>"}], 
-              "}"}]}], "}"}]}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"Greater", ",", 
-           RowBox[{"{", 
-            RowBox[{"StringLength", ",", "tmp"}], "}"}], ",", "5"}], "}"}]}], 
-        "}"}], ",", "tmp", ",", "\<\"<||>\"\>"}], "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"validatePossibleString", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "tmp", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"If", ",", 
-       RowBox[{"{", 
-        RowBox[{"And", ",", 
-         RowBox[{"{", 
-          RowBox[{"Not", ",", 
-           RowBox[{"{", 
-            RowBox[{"MatchQ", ",", "tmp", ",", 
-             RowBox[{"{", 
-              RowBox[{"LibraryFunctionError", ",", 
-               RowBox[{"{", "Blank", "}"}], ",", 
-               RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}]}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"StringQ", ",", "tmp"}], "}"}]}], "}"}], ",", "tmp", 
-       ",", "\<\"\"\>"}], "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"CopyMetaInformation", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "in", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "out", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "e", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "x", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "i", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "c", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Optional", ",", 
-         RowBox[{"{", 
-          RowBox[{"Pattern", ",", "overwriteAllTags", ",", 
-           RowBox[{"{", "Blank", "}"}]}], "}"}], ",", "True"}], "}"}]}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"Block", ",", 
-       RowBox[{"{", 
-        RowBox[{"List", ",", 
-         RowBox[{"{", 
-          RowBox[{
-          "Set", ",", "\<\"Global`\"\>", 
-           ",", "\<\"XMPTools`TempContext`\"\>"}], "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Quiet", ",", 
-         RowBox[{"{", 
-          RowBox[{"Module", ",", 
-           RowBox[{"{", 
-            RowBox[{"List", ",", "inFPath", ",", "outFPath"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"CompoundExpression", ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", "inFPath", ",", 
-               RowBox[{"{", 
-                RowBox[{"FindFile", ",", "in"}], "}"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"Set", ",", "outFPath", ",", 
-               RowBox[{"{", 
-                RowBox[{"FindFile", ",", "out"}], "}"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"Or", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Not", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"FileExistsQ", ",", "inFPath"}], "}"}]}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Not", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"FileExistsQ", ",", "outFPath"}], "}"}]}], 
-                  "}"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Return", ",", "$Failed"}], "}"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"UnsameQ", ",", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "$XMPInitializeMetaCopy", ",", "inFPath", ",", "outFPath", 
-                   ",", "overwriteAllTags"}], "}"}], ",", "True"}], "}"}], 
-               ",", 
-               RowBox[{"{", 
-                RowBox[{"Return", ",", "$Failed"}], "}"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"UnsameQ", ",", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "$CopyMetaInformation", ",", "e", ",", "x", ",", "i", ",", 
-                   "c"}], "}"}], ",", "True"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Return", ",", "$Failed"}], "}"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"UnsameQ", ",", 
-                 RowBox[{"{", "$XMPUnInitializeMetaCopy", "}"}], ",", 
-                 "True"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Return", ",", "$Failed"}], "}"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"Return", ",", "True"}], "}"}]}], "}"}]}], "}"}]}], 
-        "}"}]}], "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"GetXMP", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "tname", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"Block", ",", 
-       RowBox[{"{", 
-        RowBox[{"List", ",", 
-         RowBox[{"{", 
-          RowBox[{
-          "Set", ",", "\<\"Global`\"\>", 
-           ",", "\<\"XMPTools`TempContext`\"\>"}], "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Module", ",", 
-         RowBox[{"{", 
-          RowBox[{"List", ",", 
-           RowBox[{"{", 
-            RowBox[{"Set", ",", "res", ",", 
-             RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], 
-           ",", "fin"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"CompoundExpression", ",", 
-           RowBox[{"{", 
-            RowBox[{"Set", ",", "fin", ",", 
-             RowBox[{"{", 
-              RowBox[{"Quiet", ",", 
-               RowBox[{"{", 
-                RowBox[{"Which", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"All\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Module", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Set", ",", "x", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"ValidateXMP", ",", "res"}], "}"}]}], "}"}]}], 
-                    "}"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"AssociationQ", ",", "x"}], "}"}], ",", "x", ",", 
-                    
-                    RowBox[{"{", "Association", "}"}]}], "}"}]}], "}"}], ",", 
-                 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"Raw\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                 "True", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"If", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"MatchQ", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"$Failed", ",", "tname"}], "}"}]}], "}"}], ",", 
-                   "$Failed", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"MatchQ", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "Missing", ",", "\<\"KeyAbsent\"\>", ",", "tname"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "LibraryFunctionError", ",", "\<\"LIBRARY_USER_ERROR\"\>",
-                     ",", 
-                    RowBox[{"-", "2"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}]}], "}"}]}], "}"}]}], 
-                "}"}]}], "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"Quiet", ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"AssociationQ", ",", "fin"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"DeleteMissing", ",", "fin", ",", "\[Infinity]"}], 
-                "}"}], ",", "fin"}], "}"}]}], "}"}]}], "}"}]}], "}"}]}], 
-      "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"GetIPTC", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "tname", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"Block", ",", 
-       RowBox[{"{", 
-        RowBox[{"List", ",", 
-         RowBox[{"{", 
-          RowBox[{
-          "Set", ",", "\<\"Global`\"\>", 
-           ",", "\<\"XMPTools`TempContext`\"\>"}], "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Module", ",", 
-         RowBox[{"{", 
-          RowBox[{"List", ",", 
-           RowBox[{"{", 
-            RowBox[{"Set", ",", "res", ",", 
-             RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], 
-           ",", "fin"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"CompoundExpression", ",", 
-           RowBox[{"{", 
-            RowBox[{"Set", ",", "fin", ",", 
-             RowBox[{"{", 
-              RowBox[{"Quiet", ",", 
-               RowBox[{"{", 
-                RowBox[{"Which", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"All\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Module", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Set", ",", "x", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"SameQ", ",", "res", ",", 
-                    RowBox[{"{", "Association", "}"}]}], "}"}], ",", 
-                    RowBox[{"{", "Association", "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"ValidateIPTC", ",", "res"}], "}"}]}], "}"}]}], 
-                    "}"}]}], "}"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"AssociationQ", ",", "x"}], "}"}], ",", "x", ",", 
-                    
-                    RowBox[{"{", "Association", "}"}]}], "}"}]}], "}"}], ",", 
-                 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"Raw\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                 "True", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"If", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"MatchQ", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"$Failed", ",", "tname"}], "}"}]}], "}"}], ",", 
-                   "$Failed", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"MatchQ", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "Missing", ",", "\<\"KeyAbsent\"\>", ",", "tname"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "LibraryFunctionError", ",", "\<\"LIBRARY_USER_ERROR\"\>",
-                     ",", 
-                    RowBox[{"-", "2"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}]}], "}"}]}], "}"}]}], 
-                "}"}]}], "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"Quiet", ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"AssociationQ", ",", "fin"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"DeleteMissing", ",", "fin", ",", "\[Infinity]"}], 
-                "}"}], ",", "fin"}], "}"}]}], "}"}]}], "}"}]}], "}"}]}], 
-      "}"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SetDelayed", ",", 
-     RowBox[{"{", 
-      RowBox[{"GetExif", ",", 
-       RowBox[{"{", 
-        RowBox[{"Pattern", ",", "tname", ",", 
-         RowBox[{"{", "Blank", "}"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"Block", ",", 
-       RowBox[{"{", 
-        RowBox[{"List", ",", 
-         RowBox[{"{", 
-          RowBox[{
-          "Set", ",", "\<\"Global`\"\>", 
-           ",", "\<\"XMPTools`TempContext`\"\>"}], "}"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"Module", ",", 
-         RowBox[{"{", 
-          RowBox[{"List", ",", 
-           RowBox[{"{", 
-            RowBox[{"Set", ",", "res", ",", 
-             RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], 
-           ",", "fin"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"CompoundExpression", ",", 
-           RowBox[{"{", 
-            RowBox[{"Set", ",", "fin", ",", 
-             RowBox[{"{", 
-              RowBox[{"Quiet", ",", 
-               RowBox[{"{", 
-                RowBox[{"Which", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"All\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"{", 
-                  RowBox[{"Module", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"List", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"Set", ",", "x", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"ValidateExif", ",", "res"}], "}"}]}], "}"}]}], 
-                    "}"}], ",", 
-                   RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"AssociationQ", ",", "x"}], "}"}], ",", "x", ",", 
-                    
-                    RowBox[{"{", "Association", "}"}]}], "}"}]}], "}"}], ",", 
-                 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"Raw\"\>"}], "}"}], 
-                 ",", 
-                 RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"SameQ", ",", "tname", ",", "\<\"MakerNote\"\>"}], 
-                  "}"}], ",", 
-                 RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", 
-                 "True", ",", 
-                 RowBox[{"{", 
-                  RowBox[{"If", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"MatchQ", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"$Failed", ",", "tname"}], "}"}]}], "}"}], ",", 
-                   "$Failed", ",", 
-                   RowBox[{"{", 
-                    RowBox[{"If", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"MatchQ", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "Missing", ",", "\<\"KeyAbsent\"\>", ",", "tname"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "LibraryFunctionError", ",", "\<\"LIBRARY_USER_ERROR\"\>",
-                     ",", 
-                    RowBox[{"-", "2"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"res", ",", "tname"}], "}"}]}], "}"}]}], "}"}]}], 
-                "}"}]}], "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"Quiet", ",", 
-             RowBox[{"{", 
-              RowBox[{"If", ",", 
-               RowBox[{"{", 
-                RowBox[{"AssociationQ", ",", "fin"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"DeleteMissing", ",", "fin", ",", "\[Infinity]"}], 
-                "}"}], ",", "fin"}], "}"}]}], "}"}]}], "}"}]}], "}"}]}], 
-      "}"}]}], "}"}], ",", 
-   RowBox[{"{", "End", "}"}], ",", 
-   RowBox[{"{", "EndPackage", "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.7710156252551107`*^9},
- CellLabel->"Out[62]=",ExpressionUUID->"1f875edd-fcd0-4780-bfac-56eaa849fcbd"]
+   RowBox[{"getSourceFromDoc", "[", 
+    RowBox[{"#", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "]"}], "&"}], "/@", 
+  RowBox[{
+   RowBox[{"WolframLanguageData", "[", "\"\<Apply\>\"", "]"}], "[", 
+   TemplateBox[{
+    "\"documentation basic examples\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{
+        "\"WolframLanguageSymbol\"", ",", "\"DocumentationBasicExamples\""}], 
+       "]"}],"\"EntityProperty[\\\"WolframLanguageSymbol\\\", \
+\\\"DocumentationBasicExamples\\\"]\""},
+    "EntityProperty"], "]"}]}]], "Input",
+ CellChangeTimes->{{3.771026579065757*^9, 3.771026615616954*^9}, {
+  3.7710266643112917`*^9, 3.771026665615938*^9}},
+ CellLabel->
+  "In[338]:=",ExpressionUUID->"f2ccf8fb-fa60-441d-939c-7546b19ca36d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"                     Pi\\n{f, HoldComplete[Sin[--]], b, c, \
+{RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{Pi, /, 3}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Sin, [, \
+RowBox[{60, Degree}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Plot, [, RowBox[{RowBox[{Sin, [, x, ]}], ,, \
+RowBox[{{, RowBox[{x, ,, 0, ,, RowBox[{2, Pi}]}], }}]}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Series, [, \
+RowBox[{RowBox[{Sin, [, x, ]}], ,, RowBox[{{, RowBox[{x, ,, 0, ,, 10}], \
+}}]}], ]}]], Input, ShowStringCharacters -> True]]}}\\n                     3\
+\"\>", ",", "\<\"                                          Pi\\n{Apply, f, \
+{List, {List, HoldComplete[Sin[--]], b}, {List, c}, \
+{RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{Pi, /, 3}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Sin, [, \
+RowBox[{60, Degree}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Plot, [, RowBox[{RowBox[{Sin, [, x, ]}], ,, \
+RowBox[{{, RowBox[{x, ,, 0, ,, RowBox[{2, Pi}]}], }}]}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Series, [, \
+RowBox[{RowBox[{Sin, [, x, ]}], ,, RowBox[{{, RowBox[{x, ,, 0, ,, 10}], \
+}}]}], ]}]], Input, ShowStringCharacters -> True]]}}}\\n                      \
+                    3\"\>", 
+   ",", "\<\"                                          Pi\\n{Apply[f], {List, \
+{List, HoldComplete[Sin[--]], b}, {List, c}, \
+{RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{Pi, /, 3}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Sin, [, \
+RowBox[{60, Degree}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Plot, [, RowBox[{RowBox[{Sin, [, x, ]}], ,, \
+RowBox[{{, RowBox[{x, ,, 0, ,, RowBox[{2, Pi}]}], }}]}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Series, [, \
+RowBox[{RowBox[{Sin, [, x, ]}], ,, RowBox[{{, RowBox[{x, ,, 0, ,, 10}], \
+}}]}], ]}]], Input, ShowStringCharacters -> True]]}}}\\n                      \
+                    3\"\>", 
+   ",", "\<\"                                                    Pi\\n{Apply, \
+f, {Association, {Rule, 1, HoldComplete[Sin[--]]}, {Rule, 2, b}, {Rule, 3, \
+c}}}\\n                                                    3\"\>", 
+   ",", "\<\"                                                       \
+Pi\\n{Apply, List, {Association, {Rule, 1, HoldComplete[Sin[--]]}, {Rule, 2, \
+b}, {Rule, 3, c}, {Rule, 4, {List, {RawBoxes[Cell[BoxData[RowBox[{Sin, [, \
+RowBox[{Pi, /, 3}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{60, Degree}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Plot, [, \
+RowBox[{RowBox[{Sin, [, x, ]}], ,, RowBox[{{, RowBox[{x, ,, 0, ,, RowBox[{2, \
+Pi}]}], }}]}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Series, [, RowBox[{RowBox[{Sin, [, x, ]}], ,, \
+RowBox[{{, RowBox[{x, ,, 0, ,, 10}], }}]}], ]}]], Input, ShowStringCharacters \
+-> True]]}}}}}\\n                                                       \
+3\"\>", ",", "\<\"                                                    \
+Pi\\n{Apply, f, {Association, {Rule, 1, HoldComplete[Sin[--]]}, {Rule, 2, b}, \
+{Rule, 3, c}, {Rule, 4, {List, {RawBoxes[Cell[BoxData[RowBox[{Sin, [, \
+RowBox[{Pi, /, 3}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{60, Degree}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Plot, [, \
+RowBox[{RowBox[{Sin, [, x, ]}], ,, RowBox[{{, RowBox[{x, ,, 0, ,, RowBox[{2, \
+Pi}]}], }}]}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Series, [, RowBox[{RowBox[{Sin, [, x, ]}], ,, \
+RowBox[{{, RowBox[{x, ,, 0, ,, 10}], }}]}], ]}]], Input, ShowStringCharacters \
+-> True]]}, {List, e}}}}, {List, 2}}\\n                                       \
+             3\"\>", 
+   ",", "\<\"                                                    Pi\\n{Apply, \
+f, {Association, {Rule, 1, HoldComplete[Sin[--]]}, {Rule, 2, b}, {Rule, 3, \
+c}, {Rule, 4, {List, {RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{Pi, /, \
+3}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Sin, [, RowBox[{60, Degree}], ]}]], Input, \
+ShowStringCharacters -> True]], RawBoxes[Cell[BoxData[RowBox[{Plot, [, \
+RowBox[{RowBox[{Sin, [, x, ]}], ,, RowBox[{{, RowBox[{x, ,, 0, ,, RowBox[{2, \
+Pi}]}], }}]}], ]}]], Input, ShowStringCharacters -> True]], \
+RawBoxes[Cell[BoxData[RowBox[{Series, [, RowBox[{RowBox[{Sin, [, x, ]}], ,, \
+RowBox[{{, RowBox[{x, ,, 0, ,, 10}], }}]}], ]}]], Input, ShowStringCharacters \
+-> True]]}, {List, e}}}}, {List, 0, 2}}\\n                                    \
+                3\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7710265818515472`*^9, 3.7710266169536543`*^9}, 
+   3.771026666590085*^9},
+ CellLabel->
+  "Out[338]=",ExpressionUUID->"4df5beea-527f-4d48-97cc-026796b42f72"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Dataset collector", "Subsection",
+ CellChangeTimes->{{3.771020796498912*^9, 3.771020802716955*^9}, {
+  3.771024764326696*^9, 
+  3.771024765393688*^9}},ExpressionUUID->"0e62dfbb-e0ee-487c-9abe-\
+80ca72e903df"],
+
+Cell["Dataset structure: id, type, filename, line, expr, label", "Text",
+ CellChangeTimes->{{3.771020806359174*^9, 
+  3.771020883967949*^9}},ExpressionUUID->"57bf6ae0-cfe0-49cd-9ffc-\
+49ac72ba0752"]
 }, Open  ]]
 },
-WindowSize->{1221, 614},
+WindowSize->{Full, Full},
 WindowMargins->{{24, Automatic}, {Automatic, 13}},
 FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 11, 2019)",
 StyleDefinitions->"Default.nb"
@@ -1696,17 +550,34 @@ Cell[5873, 162, 457, 11, 51, "Input",ExpressionUUID->"4b3a620d-6fef-43ee-9126-10
 Cell[6333, 175, 242, 5, 34, "Output",ExpressionUUID->"ef7f8274-2255-4c92-982e-01e35f1b0bd0"]
 }, Open  ]]
 }, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6636, 187, 164, 3, 38, "Subsection",ExpressionUUID->"35485cc3-5201-4c05-a9ec-a9139f20539b"],
+Cell[6803, 192, 162, 3, 35, "Text",ExpressionUUID->"b7083abc-37aa-489f-bb5a-37f3f17b1d6f"],
+Cell[6968, 197, 1624, 42, 89, "Input",ExpressionUUID->"cff05178-9ac4-450c-b6ba-bcb5f9b61465"],
+Cell[8595, 241, 1048, 19, 52, "Input",ExpressionUUID->"cf79c1c8-2176-4dc1-8f5c-15c9b23e3d2e"],
+Cell[9646, 262, 403, 9, 58, "Text",ExpressionUUID->"cce4135e-3135-4151-b888-e1df18438aad"],
+Cell[CellGroupData[{
+Cell[10074, 275, 315, 7, 30, "Input",ExpressionUUID->"78c8cf26-b0ee-4b42-845a-b1be8a66a555"],
+Cell[10392, 284, 330, 5, 34, "Output",ExpressionUUID->"e7824fe3-ecd5-4bed-acaa-368e8780c200"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6636, 187, 164, 3, 54, "Subsection",ExpressionUUID->"35485cc3-5201-4c05-a9ec-a9139f20539b"],
-Cell[6803, 192, 162, 3, 35, "Text",ExpressionUUID->"b7083abc-37aa-489f-bb5a-37f3f17b1d6f"],
-Cell[6968, 197, 1413, 38, 89, "Input",ExpressionUUID->"cff05178-9ac4-450c-b6ba-bcb5f9b61465"],
-Cell[8384, 237, 444, 7, 30, "Input",ExpressionUUID->"1363f63b-c7fe-4b62-9c52-fdbb903e8848"],
-Cell[8831, 246, 751, 14, 30, "Input",ExpressionUUID->"cf79c1c8-2176-4dc1-8f5c-15c9b23e3d2e"],
+Cell[10771, 295, 165, 3, 54, "Subsection",ExpressionUUID->"0e6a13a1-dfe9-41b1-a255-fe5737e6269a"],
+Cell[10939, 300, 1303, 35, 89, "Input",ExpressionUUID->"bf589362-5872-4607-980e-f7dac1373a01"],
+Cell[12245, 337, 813, 17, 40, "Input",ExpressionUUID->"98b15a2a-cd63-48c7-bab3-42ed9db26c1b"],
 Cell[CellGroupData[{
-Cell[9607, 264, 177, 2, 30, "Input",ExpressionUUID->"6f88b2a6-c624-4b95-b3a6-69fa65d1d5df"],
-Cell[9787, 268, 62615, 1387, 5957, "Output",ExpressionUUID->"1f875edd-fcd0-4780-bfac-56eaa849fcbd"]
+Cell[13083, 358, 298, 8, 30, "Input",ExpressionUUID->"7329812c-80a5-4674-a631-7f15c582a8b6"],
+Cell[13384, 368, 1172, 28, 38, "Output",ExpressionUUID->"8e7b9348-8520-4eb1-9925-93a67f60eb26"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14593, 401, 762, 18, 40, "Input",ExpressionUUID->"f2ccf8fb-fa60-441d-939c-7546b19ca36d"],
+Cell[15358, 421, 5109, 74, 833, "Output",ExpressionUUID->"4df5beea-527f-4d48-97cc-026796b42f72"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20516, 501, 214, 4, 54, "Subsection",ExpressionUUID->"0e62dfbb-e0ee-487c-9abe-80ca72e903df"],
+Cell[20733, 507, 198, 3, 35, "Text",ExpressionUUID->"57bf6ae0-cfe0-49cd-9ffc-49ac72ba0752"]
 }, Open  ]]
 }
 ]
