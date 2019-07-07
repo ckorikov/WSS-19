@@ -12,6 +12,7 @@ import aiohttp
 from github import Github
 
 HERE = os.path.abspath(os.path.dirname(__file__))
+timeout = aiohttp.ClientTimeout(total=10)
 
 
 async def wait_all(args):
@@ -56,51 +57,51 @@ def list_split(iterable, n, reverse=False):
 
 
 async def download(session, url):
-
     path = os.path.join(
-        HERE, "-".join(urlparse(url).path.split("/")[1:3]).replace("/", "-")
+        HERE, "repos", "-".join(urlparse(url).path.split("/")[1:3]).replace("/", "-")
     )
 
-    async with session.get(url) as resp:
-
-        print("downloading", url, "to", path)
-
-        if resp.status == 200:
-
-            zip_buffer = io.BytesIO()
-            zip_buffer.write(await resp.read())
-            zip_buffer.seek(0)
-
-            with zipfile.ZipFile(zip_buffer, "r") as f:
-                f.extractall(path)
-                f.close()
+    if os.path.exists(path):
+        print("[exists]", url)
+    else:
+        try:
+            async with session.get(url, timeout=timeout) as resp:
+                print("downloading", url, "to", path)
+                if resp.status == 200:
+                    zip_buffer = io.BytesIO()
+                    zip_buffer.write(await resp.read())
+                    zip_buffer.seek(0)
+                    with zipfile.ZipFile(zip_buffer, "r") as f:
+                        f.extractall(path)
+                        f.close()
+        except asyncio.TimeoutError:
+            print("[TIMEOUT]")
+        except Exception:
+            pass
 
 
 async def downloadall(urls):
     async with aiohttp.ClientSession() as session:
         for batch in list_split(urls, 20):
-
-            return await wait_all(
+            await wait_all(
                 asyncio.create_task(download(session, url)) for url in batch
             )
 
 
-def getrepourls():
-    # using username and password
-    g = Github("6dc7482bc50ef00143731a531531ed2354a8eec2")
+def getrepourls(token: ""):
+    if token:
+        g = Github(token)
+        repositories = g.search_repositories(query="language:Mathematica", sort="stars")
 
-    repositories = g.search_repositories(query="language:mathematica")
-
-    for repo in repositories:
-        yield "%s/archive/master.zip" % repo.clone_url[0:-4]
+        for repo in repositories:
+            yield "%s/archive/master.zip" % repo.clone_url[0:-4]
+    else:
+        print("Please, provide a GitHub API token")
 
 
 @run_in_loop
 async def main():
-    await downloadall(getrepourls())
+    await downloadall(getrepourls(""))
 
 
 main()
-
-
-# https://github.com/WolframResearch/WolframClientForPython/archive/master.zip
