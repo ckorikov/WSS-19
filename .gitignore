@@ -4,3 +4,4 @@ Final Project/Research/dataset/
 Final Project/Research/assets/.idea
 Final Project/Research/assets/repos/*
 !Final Project/Research/assets/repos/readme.md
+!Final Project/Research/dataset/training/*.wxf
