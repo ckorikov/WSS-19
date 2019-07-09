@@ -14,4 +14,6 @@ For the purpose, it is helpful to use code embeddings, which map the code to the
 
 1. Chen, Z. & Monperrus, M. A Literature Study of Embeddings on Source Code. ArXiv190403061 Cs Stat (2019).
 
+<img src="promo.png" width="100%"/>
+
 See details here: [Wolfram Summer School](https://education.wolfram.com/summer/school/).
