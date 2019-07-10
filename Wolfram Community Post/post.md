@@ -57,7 +57,7 @@ Apply function `getSourceFromDocExample` to every element of data
 getSourceFromDocExample [ EntityValue[WolframLanguageData[symbol],"DocumentationExampleInputs"]]
 ```
 
-where `symbol` is the name of requested documentation of the symbol.  Then we extract data from `input` cells and transform them into expression as follows
+where `symbol` is the name of requested documentation of the symbol.  In `getSourceFromDocExample` we extract data from `input` cells and transform them into expression as follows
 
 ```Mathematica
 Cell[BoxData[r_], "Input", ___] :> MakeExpression[r, StandardForm]
