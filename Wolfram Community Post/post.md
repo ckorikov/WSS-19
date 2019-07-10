@@ -57,13 +57,44 @@ Apply function `getSourceFromDocExample` to every element of data
 getSourceFromDocExample [ EntityValue[WolframLanguageData[symbol],"DocumentationExampleInputs"]]
 ```
 
-where `symbol` is the name of requested documentation of the symbol.  In `getSourceFromDocExample` we extract data from `input` cells and transform them into expression as follows
+where `symbol` is the name of requested documentation of the symbol.  In `getSourceFromDocExample` we extract data from `input` cells and transform them into expressions as follows
 
 ```Mathematica
 Cell[BoxData[r_], "Input", ___] :> MakeExpression[r, StandardForm]
 ```
 
 ### Source II. Internal unencrypted files
+
+We searched Wolfram Mathematica system files in the `$InstallationDirectory` directory. 
+
+```Mathematica
+wlFiles=FileNames["*.wl",$InstallationDirectory,Infinity];
+mFiles=FileNames["*.m",$InstallationDirectory,Infinity];
+```
+
+Then we excluded inappropriate files like files from `AutoCompletionData` directory or `SearchIndex` manually. After this, we extracted expressions from every file. The main logic is in the following code where `path` is a full file path.
+
+```Mathematica
+List @@ Map[
+			HoldComplete, 
+			Replace[
+			    Quiet@ToExpression[
+				    StringReplace[
+					    ReadString[path],
+						{
+							Shortest["Package["~~___~~"]"]-> ""
+						}], InputForm, HoldComplete], {
+							h_HoldComplete :> DeleteCases[h, Null],
+							_ :> HoldComplete[]
+						}
+					]
+				]
+```
+Here, the replacement 
+```Mathematica
+"Package["~~___~~"]"]-> ""
+```
+is needed to overcome incorrect behaviour of `ToExpression` function. 
 
 ### Source III. GitHub repositories
 
