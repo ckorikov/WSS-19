@@ -10,40 +10,130 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2508,         74]
-NotebookOptionsPosition[      1520,         44]
-NotebookOutlinePosition[      2344,         72]
-CellTagsIndexPosition[      2301,         69]
+NotebookDataLength[      6858,        181]
+NotebookOptionsPosition[      4817,        134]
+NotebookOutlinePosition[      5625,        161]
+CellTagsIndexPosition[      5582,        158]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["< Project Title >", "Title",
+Cell["Code Embeddings for Wolfram Language", "Title",
  CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
-  3.770055604008165*^9, 
-  3.7700556066618843`*^9}},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
+   3.770055604008165*^9, 3.7700556066618843`*^9}, 
+   3.771726277386387*^9},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
 400d3cc456dd"],
 
-Cell["< First and Last name>", "Text",
+Cell["Constantine Korikov", "Text",
  CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
   3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
   3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
-  3.77005561844785*^9, 
-  3.7700556489651537`*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+  3.77005561844785*^9, 3.7700556489651537`*^9}, {3.771723485753903*^9, 
+  3.771723492953279*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
 fa93ec9acae9"],
 
-Cell["< Mentor\[CloseCurlyQuote]s First and Last name>", "Text",
+Cell["Riccardo Di Virgilio", "Text",
  CellChangeTimes->{{3.549624515773694*^9, 3.5496245246892014`*^9}, {
-  3.5498187208956137`*^9, 3.5498187221413403`*^9}, {3.5498190558319674`*^9, 
-  3.54981906151682*^9}, {3.770055624686027*^9, 
-  3.770055659820487*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
-238ea1f9c7d4"]
+   3.5498187208956137`*^9, 3.5498187221413403`*^9}, {3.5498190558319674`*^9, 
+   3.54981906151682*^9}, {3.770055624686027*^9, 3.770055659820487*^9}, 
+   3.771725969996675*^9},ExpressionUUID->"b70c649b-a958-4202-9f22-\
+238ea1f9c7d4"],
+
+Cell[CellGroupData[{
+
+Cell["Intro", "Subtitle",
+ CellChangeTimes->{{3.7717497710246*^9, 
+  3.771749773146892*^9}},ExpressionUUID->"881c2438-d10b-4411-ae25-\
+c35ded5816f2"],
+
+Cell["\<\
+In the project, it is implied to implement a system which shows the \
+similarity between built-in functions of Wolfram Language based on their \
+context of usages. Illustrations should support the results. As an option, \
+the solution can be used to generate names for expressions. For the purpose, \
+it is helpful to use code embeddings, which map the code to the vector space.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.771749712140745*^9, 3.771749721990388*^9}, 
+   3.771749870383741*^9},
+ TextJustification->1,ExpressionUUID->"cfb9ed64-82f8-4ea0-a74d-419a3b507b74"],
+
+Cell["\<\
+In our project, we tried to explore different forms of embeddings for Wolfram \
+Language. For this purpose, we:
+\[LongDash] gathered a lot of samples of code in Wolfram Language
+\[LongDash] cleaned the samples and made them interpretable
+\[LongDash] trained a couple of classical neural network architectures
+\[LongDash] did experiments with a state-of-the-art method in source code \
+embeddings
+\[LongDash] got images of embedding vector space in 2D.\
+\>", "Text",
+ CellChangeTimes->{{3.771749883254785*^9, 3.771749888472658*^9}, {
+  3.7717499186298656`*^9, 3.7717499488857813`*^9}},
+ TextJustification->1,ExpressionUUID->"eed23ecc-04e0-4cf2-a1de-543f21ace741"],
+
+Cell[TextData[{
+ "The steps of solution is presented below. This file is assembled from \
+different notebooks from the following link: \n",
+ Cell[BoxData[
+  TemplateBox[{
+   "\"https://github.com/ckorikov/WSS-19/tree/master/Final%20Project/Research\
+\"","https://github.com/ckorikov/WSS-19/tree/master/Final%20Project/Research"},
+   "HyperlinkURL"]], "Output",
+  CellChangeTimes->{3.771750158704547*^9},ExpressionUUID->
+  "936b0b3e-d642-4ab3-bccf-67828cd75b04"]
+}], "Text",
+ CellChangeTimes->{{3.771749954412562*^9, 3.7717499872901506`*^9}, {
+  3.77175012922655*^9, 3.771750168345851*^9}, {3.7717502039730864`*^9, 
+  3.771750214003943*^9}},
+ TextAlignment->Left,
+ TextJustification->1,ExpressionUUID->"1998adcd-af9e-47b1-ad40-8e1ae670676f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Dataset", "Subtitle",
+ CellChangeTimes->{{3.771749786191455*^9, 
+  3.771749793058008*^9}},ExpressionUUID->"4b1b259e-e2f9-40f7-9d43-\
+e9510d7a80d3"],
+
+Cell["TBD", "Text",
+ CellChangeTimes->{{3.7717497959542513`*^9, 
+  3.771749800564547*^9}},ExpressionUUID->"4fe6cf7a-dfc0-4823-aeba-\
+2a6de592d0ca"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Language modelling", "Subtitle",
+ CellChangeTimes->{{3.7717498038165703`*^9, 
+  3.7717498164118843`*^9}},ExpressionUUID->"7e2be0c5-bd63-43a4-8a22-\
+457263997ac1"],
+
+Cell["TBD", "Text",
+ CellChangeTimes->{{3.771749830389555*^9, 
+  3.771749831828145*^9}},ExpressionUUID->"1ec8c7a9-6f8f-4aff-9682-\
+adf8cfc4ca7e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cod2vec", "Subtitle",
+ CellChangeTimes->{{3.771749832787664*^9, 
+  3.771749837051351*^9}},ExpressionUUID->"26a97491-2278-41c7-9d16-\
+61228fadff0e"],
+
+Cell["TBD", "Text",
+ CellChangeTimes->{{3.771749838812428*^9, 
+  3.7717498411590843`*^9}},ExpressionUUID->"de716e95-95bb-48c1-9811-\
+663b357c558d"]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{720, 855},
-WindowMargins->{{360, Automatic}, {Automatic, 0}},
+WindowSize->{720, 714},
+WindowMargins->{{184, Automatic}, {Automatic, 0}},
 DockedCells->{
   Cell[
    TextData[{
@@ -56,8 +146,7 @@ DockedCells->{
       RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
       40]}], CellFrameMargins -> 10, Background -> 
    RGBColor[0.12, 0.14, 0.15]]},
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 11, 2019)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -72,9 +161,27 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 213, 4, 98, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
-Cell[796, 28, 364, 6, 35, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
-Cell[1163, 36, 341, 5, 35, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"]
+Cell[580, 22, 256, 4, 160, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+Cell[839, 28, 407, 6, 35, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[1249, 36, 338, 5, 35, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"],
+Cell[CellGroupData[{
+Cell[1612, 45, 149, 3, 53, "Subtitle",ExpressionUUID->"881c2438-d10b-4411-ae25-c35ded5816f2"],
+Cell[1764, 50, 574, 10, 104, "Text",ExpressionUUID->"cfb9ed64-82f8-4ea0-a74d-419a3b507b74"],
+Cell[2341, 62, 672, 12, 173, "Text",ExpressionUUID->"eed23ecc-04e0-4cf2-a1de-543f21ace741"],
+Cell[3016, 76, 740, 15, 77, "Text",ExpressionUUID->"1998adcd-af9e-47b1-ad40-8e1ae670676f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3793, 96, 153, 3, 53, "Subtitle",ExpressionUUID->"4b1b259e-e2f9-40f7-9d43-e9510d7a80d3"],
+Cell[3949, 101, 147, 3, 35, "Text",ExpressionUUID->"4fe6cf7a-dfc0-4823-aeba-2a6de592d0ca"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4133, 109, 168, 3, 53, "Subtitle",ExpressionUUID->"7e2be0c5-bd63-43a4-8a22-457263997ac1"],
+Cell[4304, 114, 145, 3, 35, "Text",ExpressionUUID->"1ec8c7a9-6f8f-4aff-9682-adf8cfc4ca7e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4486, 122, 153, 3, 53, "Subtitle",ExpressionUUID->"26a97491-2278-41c7-9d16-61228fadff0e"],
+Cell[4642, 127, 147, 3, 35, "Text",ExpressionUUID->"de716e95-95bb-48c1-9811-663b357c558d"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
