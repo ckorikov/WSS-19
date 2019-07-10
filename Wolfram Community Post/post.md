@@ -80,7 +80,17 @@ TBD
 
 ![](pic/ast_paths.gif)
 
+*To try the state-of-the-art approach, we used code2vec which is presented in the following article. During Wolfram Summer School we implemented encoder which builds a paths-based representation of a  Wolfram Language expression. Training an attentional neural network and exploration of the results is a topic of future works.*
+
 ## Conclusions
+
+In our project, we tried to explore different forms of embeddings for Wolfram Language. For this purpose, we:
+
+- gathered a lot of samples of code in Wolfram Language
+- cleaned the samples and made them interpretable
+- trained a couple of classical neural network architectures
+- did experiments with a state-of-the-art method in source code embeddings
+- got images of embedding vector space in 2D.
 
 ## Future work
 
