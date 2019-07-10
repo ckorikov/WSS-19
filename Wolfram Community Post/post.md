@@ -34,7 +34,6 @@ Processing sources is a long-running process that is why we needed to have a mec
 
 ```Mathematica
 SetAttributes[keyValueStore, HoldRest];
-keyValueStore::usage="Hashing storage based of files";
 keyValueStore[expr_, default_:None] := With[
 	{path = FileNameJoin[{$cachePath, IntegerString[Hash[expr], 36] <> ".wxf"}]},
 	Replace[
@@ -49,6 +48,20 @@ keyValueStore[expr_, default_:None] := With[
 ```
 
 ### Source I. Wolfram Mathematica documentation
+
+Wolfram Mathematica provides a convenient way to access documentation data with help of `WolframLanguageData` function. It is known that the documentation contains a lot of samples of usage of built-in functions. We wanted to get these examples. Not providing whole code we just show the key points of the solution. 
+
+Apply function `getSourceFromDocExample` to every element of data
+
+```
+getSourceFromDocExample [ EntityValue[WolframLanguageData[symbol],"DocumentationExampleInputs"]]
+```
+
+where `symbol` is the name of requested documentation of the symbol.  Then we extract data from `input` cells and transform them into expression as follows
+
+```
+Cell[BoxData[r_], "Input", ___] :> MakeExpression[r, StandardForm]
+```
 
 ### Source II. Internal unencrypted files
 
