@@ -53,13 +53,13 @@ Wolfram Mathematica provides a convenient way to access documentation data with 
 
 Apply function `getSourceFromDocExample` to every element of data
 
-```
+```Mathematica
 getSourceFromDocExample [ EntityValue[WolframLanguageData[symbol],"DocumentationExampleInputs"]]
 ```
 
 where `symbol` is the name of requested documentation of the symbol.  Then we extract data from `input` cells and transform them into expression as follows
 
-```
+```Mathematica
 Cell[BoxData[r_], "Input", ___] :> MakeExpression[r, StandardForm]
 ```
 
