@@ -16,17 +16,47 @@ How should this transformation look like? For example, we can split the code int
 
 In our project, we tried to explore different forms of embeddings for Wolfram Language. And then, use this representation to find similar built-in functions. For this purpose, we gathered a lot of samples of code in Wolfram Language from different sources. Then we cleaned the samples and made them interpretable. We trained a couple of classical neural network architectures with various parameters to find vector representation for built-in functions in Wolfram Language. Also, we did experiments with a state-of-the-art method in source code embeddings. The details are explained in the following .
 
+All sources are available on GitHub: [https://github.com/ckorikov/WSS-19](https://github.com/ckorikov/WSS-19).
+
+![](pic/promo.png)
+
 ## Dataset
 
-The success of machine learning tasks depends heavily on the quality of the data. There was no ready dataset for this task. We started collecting by ourselves.
+The success of machine learning tasks depends heavily on the quality of the data. There was no ready dataset for this task. We started collecting by ourselves. To build a dataset we used tree sources:
 
-### Sources of the data
+- all the Wolfram Mathematica documentation,
+- the Mathematica's internal unencrypted files
+- and 923 GitHub repositories as large as ~57Gb.
 
-To build a dataset we used all the Wolfram Mathematica documentation, the Mathematica's internal unencrypted files and 923 GitHub repositories as large as ~57Gb.
+### File-based cache
 
-### Cleaning dataset
+Processing sources is a long-running process that is why we needed to have a mechanism which could recover data if the procedure is interrupted. The following code shows our implementation of the file-based cache. We used the Wolfram exchange format as a file format to serialize every piece of data.
 
-We found a bug  in `ToExpression`.
+```
+SetAttributes[keyValueStore, HoldRest];
+keyValueStore::usage="Hashing storage based of files";
+keyValueStore[expr_, default_:None] := With[
+	{path = FileNameJoin[{$cachePath, IntegerString[Hash[expr], 36] <> ".wxf"}]},
+	Replace[
+		Quiet @ Import[path, "WXF"],
+		_?FailureQ :> With[
+			{evaluated = default}, 
+			Export[path, evaluated, "WXF"];
+			evaluated
+		]
+	]
+];
+```
+
+### Source I. Wolfram Mathematica documentation
+
+### Source II. Internal unencrypted files
+
+### Source III. GitHub repositories
+
+*To sum up, as the first step in the project, we gathered a dataset of code in Wolfram Language from three different sources. We came across several problems. Firstly, it is a continuation of the data gathering after fail which is solved with the file-based cache. Secondly, the code in Wolfram Language cannot be just loaded into Wolfram Mathematica because the system always tries to evaluate expressions, so we had to wrap every piece of our processing logic with `HoldComplete`. Thirdly, there was found a bug in `ToExpression` related to the processing of Wolfram Language packages, which we solved with ad-hoc exclusions manually. An example of the dataset is shown below.*
+
+![](pic/promo.png)
 
 ## Language modelling
 
@@ -42,9 +72,13 @@ TBD
 
 TBD
 
+*To summarise, we used a well-known task of language modelling to extract the semantic similarity of built-in Wolfram Language functions. Here, we trained an RNN with two GRU layers and dropout to predict the next symbol in the sequence of expression tokens. The timetable allowed us to perform only three pieces of neural network training with different parameters. As a result, we got an embedding vector space where the distance between the vector representing Wolfram Language functions and special symbols corresponds to the semantic distance of them.*
+
 ## code2vec
 
 TBD
+
+![](pic/ast_paths.gif)
 
 ## Conclusions
 
