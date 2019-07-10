@@ -32,7 +32,7 @@ The success of machine learning tasks depends heavily on the quality of the data
 
 Processing sources is a long-running process that is why we needed to have a mechanism which could recover data if the procedure is interrupted. The following code shows our implementation of the file-based cache. We used the Wolfram exchange format as a file format to serialize every piece of data.
 
-```
+```Mathematica
 SetAttributes[keyValueStore, HoldRest];
 keyValueStore::usage="Hashing storage based of files";
 keyValueStore[expr_, default_:None] := With[
