@@ -37,15 +37,15 @@ Processing sources is a long-running process that is why we needed to have a mec
 ```Mathematica
 SetAttributes[keyValueStore, HoldRest];
 keyValueStore[expr_, default_:None] := With[
-	{path = FileNameJoin[{$cachePath, IntegerString[Hash[expr], 36] <> ".wxf"}]},
-	Replace[
-		Quiet @ Import[path, "WXF"],
-		_?FailureQ :> With[
-			{evaluated = default}, 
-			Export[path, evaluated, "WXF"];
-			evaluated
-		]
-	]
+    {path = FileNameJoin[{$cachePath, IntegerString[Hash[expr], 36] <> ".wxf"}]},
+    Replace[
+        Quiet @ Import[path, "WXF"],
+        _?FailureQ :> With[
+            {evaluated = default}, 
+            Export[path, evaluated, "WXF"];
+            evaluated
+        ]
+    ]
 ];
 ```
 
@@ -78,19 +78,24 @@ Then we excluded inappropriate files like files from `AutoCompletionData` direct
 
 ```Mathematica
 List @@ Map[
-			HoldComplete, 
-			Replace[
-			    Quiet@ToExpression[
-				    StringReplace[
-					    ReadString[path],
-						{
-							Shortest["Package["~~___~~"]"]-> ""
-						}], InputForm, HoldComplete], {
-							h_HoldComplete :> DeleteCases[h, Null],
-							_ :> HoldComplete[]
-						}
-					]
-				]
+    HoldComplete, 
+    Replace[
+        Quiet@ToExpression[
+            StringReplace[
+                ReadString[path], 
+                {
+                    Shortest["Package["~~___~~"]"]-> ""
+                }
+            ], 
+            InputForm,
+            HoldComplete
+        ], 
+        {
+            h_HoldComplete :> DeleteCases[h, Null],
+            _ :> HoldComplete[]
+        }
+    ]
+]
 ```
 Here, the replacement 
 ```Mathematica
