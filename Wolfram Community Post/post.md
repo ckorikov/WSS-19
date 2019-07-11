@@ -115,23 +115,35 @@ According to modern research, source code can be mapped in vector space with dif
 
 For simplicity, we started from a tokenwise splitting of Wolfram Language expressions to apply to then the statistical language modelling. This task implies to develop a probabilistic model that is able to predict the next token in the sequence given the tokens that precede it.
 
+This is a classical machine learning task we used the following recurrent neural network architecture with two Gated Recurrent Unit (GRU).
 ![](pic/rnn.png)
 
+We were doing experiments with different parameters of the network and finally chose the presented version. Here, we added dropout to increase the generalisability of the model.
+
+On the following image, the wrapper of the network is shown.
 ![](pic/rnn_wrapper.png)
 
+We used basic options of Wolfram Mathematica neural network trainer to train the network.
 ![](pic/training.png)
 
+Using t-SME we got the following embedding space:
 ![](pic/promo_static.png)
 
 *To summarise, we used a well-known task of language modelling to extract the semantic similarity of built-in Wolfram Language functions. Here, we trained an RNN with two GRU layers and dropout to predict the next symbol in the sequence of expression tokens. The timetable allowed us to perform only three pieces of neural network training with different parameters. As a result, we got an embedding vector space where the distance between the vector representing Wolfram Language functions and special symbols corresponds to the semantic distance of them.*
 
 ### code2vec
 
-TBD
+Another approach was suggested in the article "code2vec: learning distributed representations of code" [1]. The authors use a method-level granularity. According to their work, every method is represented as a bag of paths between terminal nodes in an abstract syntax tree. The formal explanation of the method can be found in the original article. If we apply this encoding to train network predicting names of methods it can be used to predict the name for methods based on the structure of them.
+
+In this section, we implemented this encoding for Wolfram Language expressions. In addition to the originally suggested paths, we consider from paths from the root to terminal nodes to be able to encode expressions with less than two terminal nodes. An example of paths is presented below.
 
 ![](pic/ast_paths.gif)
 
-*To try the state-of-the-art approach, we used code2vec which is presented in the following article. During Wolfram Summer School we implemented encoder which builds a paths-based representation of a  Wolfram Language expression. Training an attentional neural network and exploration of the results is a topic of future works.*
+Later, we realised that we do not have enough data and time to train this model so we postpone it for future research.
+
+![](pic/ann.gif)
+
+*To try the state-of-the-art approach, we used code2vec which is presented in the article[1]. During Wolfram Summer School we implemented encoder which builds a paths-based representation of a  Wolfram Language expression. Training an attentional neural network and exploration of the results is a topic of future works.*
 
 ## Conclusions
 
@@ -145,6 +157,7 @@ In our project, we tried to explore different forms of embeddings for Wolfram La
 
 ## Future work
 
-During the project, we built a pipeline to start exploring embedding for Wolfram Language. There are loads of open questions about optimal neural network architecture and parameters which can be studied in the future. Also, there are other several approaches based on machine learning successfully applied to different program languages [1], which could be implemented for the language. Finally,  it is interesting to find how to use the symbolic structure of Wolfram Language to represent programs expressively for machine learning.
+During the project, we built a pipeline to start exploring embedding for Wolfram Language. There are loads of open questions about optimal neural network architecture and parameters which can be studied in the future. Also, there are other several approaches based on machine learning successfully applied to different program languages [2], which could be implemented for the language. Finally,  it is interesting to find how to use the symbolic structure of Wolfram Language to represent programs expressively for machine learning.
 
-1. Chen, Z. & Monperrus, M. A Literature Study of Embeddings on Source Code. ArXiv190403061 Cs Stat (2019). 
+1. Alon, U., Zilberstein, M., Levy, O. & Yahav, E. code2vec: learning distributed representations of code. Proc. ACM Program. Lang. 3, 1–29 (2019).
+2. Chen, Z. & Monperrus, M. A Literature Study of Embeddings on Source Code. ArXiv190403061 Cs Stat (2019). 
