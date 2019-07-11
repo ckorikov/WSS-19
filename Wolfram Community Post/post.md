@@ -105,23 +105,27 @@ After merging we have a dataset containing 464 991 valid Wolfram Mathematica exp
 
 *To sum up, as the first step in the project, we gathered a dataset of code in Wolfram Language from three different sources. We came across several problems. Firstly, it is a continuation of the data gathering after fail which is solved with the file-based cache. Secondly, the code in Wolfram Language cannot be just loaded into Wolfram Mathematica because the system always tries to evaluate expressions, so we had to wrap every piece of our processing logic with `HoldComplete`. Thirdly, there was found a bug in `ToExpression` related to the processing of Wolfram Language packages, which we solved with ad-hoc exclusions manually. An example of the dataset is shown below.*
 
-## Language modelling
+## Models
 
-### RNN
+According to modern research, source code can be mapped in vector space with different granularity. For instance, It can be applied a linguistic approach to code when it is considered as a text. In this case, the character level granularity is used. But for source code, it is simpler to use token level granularity. Also, a source code representation should capture the structure of the program as much as possible. Next picture shows tree structure of the expression `a^3 + b c^2`.
 
-TBD
+![](pic/ast.png)
 
-### Dropout
+### Language modelling
 
-TBD
+For simplicity, we started from a tokenwise splitting of Wolfram Language expressions to apply to then the statistical language modelling. This task implies to develop a probabilistic model that is able to predict the next token in the sequence given the tokens that precede it.
 
-### TSNE
+![](pic/rnn.png)
 
-TBD
+![](pic/rnn_wrapper.png)
+
+![](pic/training.png)
+
+![](pic/promo_static.png)
 
 *To summarise, we used a well-known task of language modelling to extract the semantic similarity of built-in Wolfram Language functions. Here, we trained an RNN with two GRU layers and dropout to predict the next symbol in the sequence of expression tokens. The timetable allowed us to perform only three pieces of neural network training with different parameters. As a result, we got an embedding vector space where the distance between the vector representing Wolfram Language functions and special symbols corresponds to the semantic distance of them.*
 
-## code2vec
+### code2vec
 
 TBD
 
