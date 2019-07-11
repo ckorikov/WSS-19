@@ -100,9 +100,10 @@ is needed to overcome incorrect behaviour of `ToExpression` function.
 
 Data from GitHub repositories were downloaded with the help of the GitHub API. We tried to get all repositories which were written in Wolfram Language. GitHub sets mark "Mathematica" for such repositories. Also, we restricted ourselves with a timeout to avoid download repositories with colossal size. Finally, we got 923 GitHub repositories as large as ~57Gb. After cleaning auxiliary files and we got only 317 Mb of *.m files. We used the script for Wolfram Mathematica system files to extract expressions from the repositories.
 
-*To sum up, as the first step in the project, we gathered a dataset of code in Wolfram Language from three different sources. We came across several problems. Firstly, it is a continuation of the data gathering after fail which is solved with the file-based cache. Secondly, the code in Wolfram Language cannot be just loaded into Wolfram Mathematica because the system always tries to evaluate expressions, so we had to wrap every piece of our processing logic with `HoldComplete`. Thirdly, there was found a bug in `ToExpression` related to the processing of Wolfram Language packages, which we solved with ad-hoc exclusions manually. An example of the dataset is shown below.*
+After merging we have a dataset containing 464 991 valid Wolfram Mathematica expressions in `HoldComplete` form. In the dataset, column "source" shows either file path for system files and GitHub repositories, either function name for data from the official documentation. The "index" represents a position of the expression inside the corresponding source.
+![](pic/dataset.png)
 
-![](pic/promo_static.png)
+*To sum up, as the first step in the project, we gathered a dataset of code in Wolfram Language from three different sources. We came across several problems. Firstly, it is a continuation of the data gathering after fail which is solved with the file-based cache. Secondly, the code in Wolfram Language cannot be just loaded into Wolfram Mathematica because the system always tries to evaluate expressions, so we had to wrap every piece of our processing logic with `HoldComplete`. Thirdly, there was found a bug in `ToExpression` related to the processing of Wolfram Language packages, which we solved with ad-hoc exclusions manually. An example of the dataset is shown below.*
 
 ## Language modelling
 
